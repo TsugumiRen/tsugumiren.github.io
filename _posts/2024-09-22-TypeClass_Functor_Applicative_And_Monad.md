@@ -25,7 +25,7 @@ class Monoid m where -- 定义一个Type Class Monoid
 
 类型可以声明自己是某 Type Class 的实例，并且提供相关的约束定义：
 
-```Haskell
+```haskell
 instance Monoid [] where -- 这里[]也是一个Type Class, 其将类型a作为入参，返回[] a这个类型，代表一个容纳a类型元素的List
   mempty :: m
   mempty = []
