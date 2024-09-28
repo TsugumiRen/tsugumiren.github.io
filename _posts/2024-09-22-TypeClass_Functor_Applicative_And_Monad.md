@@ -140,10 +140,10 @@ functor1 >>= function1 >>= function2 >>= function3
 
 ```haskell
 class Applicative m => Monad m where
-	return :: a -> f a
-	(>>=) :: m a -> (a -> m b) -> m b -- 叫做 bind
-	(>>) :: m a -> m b -> m b -- 顺序执行, 但丢弃左边的返回值
-	(>=>) :: (a -> m b) -> (b -> m c) -> a -> m c -- Kleisli Arrow, 像是常规函数中用来组合的(.)
+    return :: a -> f a
+    (>>=) :: m a -> (a -> m b) -> m b -- 叫做 bind
+    (>>) :: m a -> m b -> m b -- 顺序执行, 但丢弃左边的返回值
+    (>=>) :: (a -> m b) -> (b -> m c) -> a -> m c -- Kleisli Arrow, 像是常规函数中用来组合的(.)
 ```
 
 试想一下，要是没有 Monad， 我们的生活该多么困难。如果我们只有`a -> b`的`f1`和`b->c`的`f2`，当使用`fmap`时，我们必须这样做：

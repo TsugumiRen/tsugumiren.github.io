@@ -15,12 +15,12 @@ Lua 的 coroutine 是一种有栈协程实现，它存储调用时的一整个�
 ```lua
 -- 一个随处可见平平无奇的函数
 local f = function ()
-	coroutine.yield(1)
+    coroutine.yield(1)
 end
-	
+    
 local co = coroutine.create(function () 
-	f()
-	coroutine.yield(2)
+    f()
+    coroutine.yield(2)
 end)
 
 coroutine.resume(co) -- true    1
@@ -34,12 +34,12 @@ coroutine.resume(co) -- false    cannot resume dead coroutine
 ```python
 # 并不是一个平平无奇的函数, 调用它返回一个 generator 对象
 def gen_f():
-	yield 1
+    yield 1
 
 def gen_co():
-	f = gen_f()
-	f.send(None)
-	yield 2
+    f = gen_f()
+    f.send(None)
+    yield 2
 
 co = gen_co()
 co.send(None) # 2, 谁动了我的 1 ?
@@ -52,12 +52,12 @@ co.send(None) # StopIteration
 
 ```python
 def gen_f():
-	yield 1
+    yield 1
 
 def gen_co():
-	f = gen_f()
-	yield from f
-	yield 2
+    f = gen_f()
+    yield from f
+    yield 2
 
 co = gen_co()
 co.send(None) # 1
@@ -78,12 +78,12 @@ Lua 的协程在所有代码都是 Lua 代码时工作得相当好，你可以�
 ```c
 // c side
 int l_foo(lua_State* L){
-	// do something
-	lua_getglobal(L, "bar");
-	lua_pcall(L,0,1,NULL); // zero argument, one result, no msgh
-	int bar_val = lua_tonumber(L,-1); // 假设返回一个 int
-	// do something else
-	return ret_n; // 返回值数量, 真正的返回值放在 L 指着的栈里
+    // do something
+    lua_getglobal(L, "bar");
+    lua_pcall(L,0,1,NULL); // zero argument, one result, no msgh
+    int bar_val = lua_tonumber(L,-1); // 假设返回一个 int
+    // do something else
+    return ret_n; // 返回值数量, 真正的返回值放在 L 指着的栈里
 }
 
 // 某个不为人知的地方注册了这个函数
@@ -95,7 +95,7 @@ lua_setglobal(L, "foo");
 -- lua side
 -- 简单返回一个1
 local bar = function ()
-	yield 1
+    yield 1
 end
 
 local co = coroutine.create(foo)
@@ -143,23 +143,23 @@ typedef int (*lua_KFunction) (lua_State *L, int status, lua_KContext ctx);
 ```c
 // c side
 int finish_foo(lua_State *L, int status, lua_KContext ctx){
-	// ...
-	if (status == LUA_YIELD){
-		// do something, you can just return yield value or do some operations on it
-	}
-	else if(status == LUA_OK){
-		// do something
-	}
+    // ...
+    if (status == LUA_YIELD){
+        // do something, you can just return yield value or do some operations on it
+    }
+    else if(status == LUA_OK){
+        // do something
+    }
 }
 
 int l_foo(lua_State* L){
-	int status;
-	lua_KContext ctx;
-	// do something
-	lua_getglobal(L, "bar");
-	status = lua_pcallk(L,0,1,NULL,ctx,finish_foo); // zero argument, one result, no msgh
-	
-	return finish_foo(L,status,ctx);
+    int status;
+    lua_KContext ctx;
+    // do something
+    lua_getglobal(L, "bar");
+    status = lua_pcallk(L,0,1,NULL,ctx,finish_foo); // zero argument, one result, no msgh
+    
+    return finish_foo(L,status,ctx);
 }
 
 // 某个不为人知的地方注册了这个函数
@@ -171,7 +171,7 @@ lua_setglobal(L, "foo");
 -- lua side
 -- 简单返回一个1
 local bar = function ()
-	yield 1
+    yield 1
 end
 
 local co = coroutine.create(foo)
