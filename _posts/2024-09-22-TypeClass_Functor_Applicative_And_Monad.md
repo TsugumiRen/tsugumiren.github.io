@@ -42,6 +42,7 @@ Type Class 是一个强大的功能，有了 Type Class，我们可以方便地�
 4.  ……
 
 [^1]: 不要与 OOP 中的类 (Class) 混淆，这是一个不同的概念。我们或许可以叫它元类 (Metaclass) 或者是类型构造器 (Class Constructor) ，其与 OOP 中的接口类似，但在细微之处又略有不同。可参见：[Type Class in perspective](https://diogocastro.com/blog/2018/06/17/typeclasses-in-perspective/)
+
 [^2]: 这个 Type Class 的 Kind 是 \*->\*，接受一个类型作为参数，返回另外一个类型。\* 在Haskell 中一般指代一个普通类型 (Ordinary Type) ，即那些非高阶的类型，像是Int、String。Monoid 在这里定义了一个幺半群，但运算的同一性和结合性由 Type Class 的实例来自己确保
 
 > Monoid, Functor, Applicative, Monad 所需要满足的数学性质都会放在最后，因为我们不需要这些数学性质也能使用和定义这些Type Class（虽然可能是错误地使用和定义）
