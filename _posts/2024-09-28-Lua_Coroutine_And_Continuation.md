@@ -108,11 +108,13 @@ coroutine.resume(co) -- true    some_val 期望如此
 
 在我们的例子里，当 yield 发生时，其栈的图景是这样的：
 
-![c_stack_before_resume](attachments/c_stack_before_resume_0928.svg)
+![c_stack_before_resume](/assets/img/attachments/c_stack_before_resume_0928.svg)
+_Before Resume_
 
 由于 yield 本身使用的是`setjump`和`longjump`来实现，因此当 yield 时，Foo 的栈就会被 unwind ，回到运行`coroutine.resume(co)`时刻的栈：
 
-![c_stack_after_resume](attachments/c_stack_after_resume_0928.svg)
+![c_stack_after_resume](/assets/img/attachments/c_stack_after_resume_0928.svg)
+_After Resume_
 
 注意到，在下一次执行`coroutine.resume(co)`前，我们还可能调用其他 Lua Runtime 内的函数或者其他 C 函数，因此，Foo Stack 会被这些调用破坏掉 (corrupted) ，(即使我们能调用`coroutine.resume()`)我们也无法回到这个栈进行尚未完成的运算。这就是 Lua 阻止我们在一个 C 函数内 yield 的原因。
 
