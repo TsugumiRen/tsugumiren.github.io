@@ -4,6 +4,7 @@ date: 2024-10-06 23:58:00 +0800
 categories: [Computer System, Distributed System]
 tags: [Distributed System, CAP]
 description: 一点关于 CAP 的小小介绍
+math: true
 ---
 
 >每当你提到你熟悉一点分布式理论时，面试官总会跃跃欲试地问你，CAP 是什么？然而坊间对 CAP 的解释多有偏颇，有些时候甚至问出这个问题的面试官自己都不甚了了。这篇小文就尝试来写一写，到底什么是 CAP。
