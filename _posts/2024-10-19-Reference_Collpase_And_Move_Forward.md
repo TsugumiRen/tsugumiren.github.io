@@ -14,9 +14,9 @@ description: 神奇又好玩的 Reference Collapse
 // insert a node in front of the list head
 template<typename... Args>
 void emplace_front(Node** head, Args&&... args){
-	Node* node = new Node(std::forward<Args>(args)...);
-	node->next = *head;
-	head = &node;
+    Node* node = new Node(std::forward<Args>(args)...);
+    node->next = *head;
+    head = &node;
 }
 ```
 
