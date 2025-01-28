@@ -3,7 +3,7 @@ title: 一个经典的 diff 算法 —— Myers diff 算法
 date: 2025-01-28 20:07:00 +0800
 categories: [Algorithm, diff]
 tags: [algorithm, dp, greedy]
-description: git  diff 默认的 Myers 算法
+description: git diff 默认的 Myers 算法
 math: true
 ---
 
