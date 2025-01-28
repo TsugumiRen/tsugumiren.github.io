@@ -78,6 +78,10 @@ Eugene W.Myers 在 1986 年的 《An O(ND) Difference Algorithm and Its Variatio
 
 另外一种坐标系是 $K-D$ 坐标系，其中 $k = x - y$， $d$ 则是我们在广度优先搜索中所经历的步数，在后文你会明白其含义。$k$ 值相等的所有点组成了原来的图中的一条对角线，而 $d$ 值相等的所有点则会形成一条类似等高线的折线，其在我们遍历的每一步中向外扩张，直到折线的一点触及到我们的终点$(x,y)=(m,n)$
 
+懒得画图了，凑合看看原论文里的吧，这里斜着的就是 $k$ 值相同的所有点组成的，粗虚线则是 $d$ 值相同的所有点组成的。
+
+![k_d_figure](/assets/img/attachments/myers-k-d.png)
+
 在论文中 Myers 也证明了，所有步数为 $d$ 的位置，都只可能从 $k=\{-d, -d + 2, ..., d-2,d\}$ 的位置变动而来。
 
 ### 搜索过程
@@ -273,3 +277,9 @@ int main(){
 ![result](/assets/img/attachments/myers_result.png)
 
 小镜终于能去 LeMU 玩了，不赖。
+
+## 参考
+
+[^1]: [The Myers Diff Algorithm Part 1](https://blog.jcoglan.com/2017/02/12/the-myers-diff-algorithm-part-1/)
+
+[^2]: [An O(ND) Difference Algorithm and Its Variations](http://btn1x4.inf.uni-bayreuth.de/publications/dotor_buchmann/SCM/ChefRepo/DiffUndMerge/DAlgorithmVariations.pdf)
