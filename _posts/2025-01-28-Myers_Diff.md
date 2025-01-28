@@ -280,6 +280,5 @@ int main(){
 
 ## 参考
 
-[^1]: [The Myers Diff Algorithm Part 1](https://blog.jcoglan.com/2017/02/12/the-myers-diff-algorithm-part-1/)
-
-[^2]: [An O(ND) Difference Algorithm and Its Variations](http://btn1x4.inf.uni-bayreuth.de/publications/dotor_buchmann/SCM/ChefRepo/DiffUndMerge/DAlgorithmVariations.pdf)
+1. [The Myers Diff Algorithm Part 1](https://blog.jcoglan.com/2017/02/12/the-myers-diff-algorithm-part-1/)
+2. An O(ND) Difference Algorithm and Its Variations
