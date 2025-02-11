@@ -95,7 +95,7 @@ lua_setglobal(L, "foo");
 -- lua side
 -- 简单返回一个1
 local bar = function ()
-    yield 1
+    coroutine.yield(1)
 end
 
 local co = coroutine.create(foo)
