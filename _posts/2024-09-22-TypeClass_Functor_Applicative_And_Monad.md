@@ -36,7 +36,7 @@ instance Monoid [] where -- 这里[]也是一个Type Class, 其将类型a作为�
 
 Type Class 是一个强大的功能，有了 Type Class，我们可以方便地实现如下目标：
 
-1. 当碰到某个类型声称自己是某 Type Class 的实例时，我们便可假定其拥有该 Type Class 具有的性质，并据此对其进行相关操作。譬如说，当我们看到类型a是Monoid的实例时，便可假定 `x::a` 和 `y::b` 具有``x `mappend` y == y `mappend`  x ``的性质
+1. 当碰到某个类型声称自己是某 Type Class 的实例时，我们便可假定其拥有该 Type Class 具有的性质，并据此对其进行相关操作。
 2. 利用 Type Class 构造出我们自己的类型，并将其使用到任意一处该 Type Class 可以使用的地方
 3. 当我们需要某个非用户类型具有某个 Type Class 的性质时，我们可以在用户代码中声明其是该 Type Class 的实例，这点是接口做不到的
 4.  ……
